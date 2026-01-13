@@ -1,0 +1,220 @@
+!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Nossa História ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: #fff0f5;
+    color: #333;
+}
+
+/* ===== HEADER ===== */
+header {
+    height: 100vh;
+    background: linear-gradient(135deg, #b91111, #ff8fab);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 30px;
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+header p {
+    font-size: 20px;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+/* ===== BOTÃO ===== */
+button {
+    margin-top: 25px;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #ff4d6d;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* ===== SEÇÕES ===== */
+section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+section h2 {
+    text-align: center;
+    color: #ff4d6d;
+    margin-bottom: 40px;
+    font-size: 36px;
+}
+
+/* ===== BLOCO ===== */
+.bloco {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.bloco img, .bloco video {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.texto {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #ff4d6d;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    font-size: 16px;
+}
+
+/* ===== PLAYER ===== */
+#audio {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== PÁGINA INICIAL ===== -->
+<header>
+    <div>
+        <h1>Nossa História de Amor ❤️</h1>
+        <p>
+            Algumas histórias não começam por acaso.  
+            Elas começam com olhares, crescem com sorrisos
+            e se fortalecem com amor, respeito e cumplicidade.
+            Essa é a nossa história. Cada momento, cada foto,
+            cada lembrança registrada aqui é prova de que o amor
+            verdadeiro existe.
+        </p>
+
+        <button onclick="tocar()">🎶 Tocar nossa música</button>
+    </div>
+</header>
+
+<!-- ===== HISTÓRIA ===== -->
+<section>
+    <h2>Como Tudo Começou</h2>
+
+    <div class="bloco">
+        <img src="fotos/Aonde tudo começou.jpeg" alt="Nosso começo">
+        <div class="texto">
+            <p>
+                Tudo começou de forma simples, mas cheia de significado.
+                Um encontro que mudou nossas vidas, um sentimento que
+                cresceu sem pedir permissão e que hoje é a base de tudo
+                que somos juntos.
+                Quem diria que através de uma simples ligação você 
+            se tornou tão especial pra mim.
+            </p>
+        </div>
+    </div>
+
+    <div class="bloco">
+        <img src="fotos/7.jpeg" alt="Momentos felizes">
+        <div class="texto">
+            <p>
+                Cada sorriso, cada abraço e cada conversa nos aproximou
+                ainda mais. Aprendemos que amar é escolher todos os dias,
+                mesmo nos momentos difíceis.
+                Ao seu lado percebi o que é o verdadeiro amor.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== VÍDEOS ===== -->
+<section>
+    <h2>Nossos Momentos em Vídeo 🎥</h2>
+
+    <div class="bloco">
+        <video src="midia/1 mes.mp4" controls></video>
+        <div class="texto">
+            <p>
+                Esse vídeo representa um dos nossos dias mais especiais.
+                Um registro simples, mas carregado de amor e felicidade.
+            </p>
+        </div>
+    </div>
+
+    <div class="bloco">
+        <video src="midia/praia.mp4" controls></video>
+        <div class="texto">
+            <p>
+                Momentos assim nos lembram o quanto somos fortes juntos
+                e o quanto vale a pena viver cada segundo ao seu lado.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FUTURO ===== -->
+<section>
+    <h2>Nosso Futuro 💍</h2>
+
+    <div class="bloco">
+        <img src="fotos/Aliança.jpeg">
+        <div class="texto">
+            <p>
+                O futuro é feito de sonhos, planos e promessas.
+                E todos eles têm você ao meu lado.
+                Que nossa história continue sendo escrita
+                com amor, paciência e felicidade.
+                É você que eu quero pro resto da minha vida.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    Algo simples mas foi feito de coração ❤️ 
+</footer>
+
+<!-- ===== ÁUDIO ===== -->
+<audio id="audio" src="midia/VemCa.mp3"></audio>
+
+<script>
+function tocar() {
+    const a = document.getElementById("audio");
+    a.volume = 1;
+    a.play();
+}
+</script>
+
+</body>
+</html>
