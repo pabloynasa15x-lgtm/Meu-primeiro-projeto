@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Nossa História ❤️</title>
-
 <style>
     .carta {
     background: rgba(255, 255, 255, 0.95);
@@ -200,12 +199,71 @@ footer {
         font-size: 16px;
     }
 }
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
 
+.galeria img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+}
+/* ===== TELA INICIAL ===== */
+#tela-inicial {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #b91111, #ff8fab);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9999;
+    transition: opacity 1s ease;
+}
+
+.conteudo-inicial {
+    color: white;
+    padding: 30px;
+    max-width: 700px;
+}
+
+.conteudo-inicial h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.conteudo-inicial p {
+    font-size: 20px;
+    line-height: 1.6;
+}
 </style>
 </head>
 
 <body>
-
+<!-- ===== TELA INICIAL ===== -->
+<div id="tela-inicial">
+    <div class="conteudo-inicial">
+        <h1>Bem-vinda à Nossa História ❤️</h1>
+        <p>
+            Demorei mas completei, meu amor!!
+            Cada detalhe aqui foi feito com amor.<br>
+            Aperte o botão abaixo e reviva cada momento
+            da nossa história juntos.
+        </p>
+           <button onclick="tocar()">🎶 Tocar nossa música</button>
+        <button onclick="entrarSite()">Entrar na nossa história 💕</button>
+    </div>
+</div>
 <!-- ===== PÁGINA INICIAL ===== -->
 <header>
     <div>
@@ -218,8 +276,6 @@ footer {
             cada lembrança registrada aqui é prova de que o amor
             verdadeiro existe.
         </p>
-
-        <button onclick="tocar()">🎶 Tocar nossa música</button>
     </div>
 </header>
 
@@ -256,6 +312,20 @@ footer {
 
 <!-- ===== VÍDEOS ===== -->
 <section>
+    <section>
+    <h2>Nossos Momentos 📸</h2>
+
+    <div class="galeria">
+        <img src="fotos/6.jpeg">
+        <img src="fotos/2.jpeg">
+        <img src="fotos/3.jpeg">
+        <img src="fotos/4.jpeg">
+        <img src="fotos/8.jpeg">
+        <img src="fotos/1.jpeg">
+        <img src="fotos/preto e branco.jpeg">
+        <img src="fotos/foto preferida dois.jpeg">
+    </div>
+</section>
     <h2>Nossos Momentos em Vídeo 🎥</h2>
 
     <div class="bloco">
@@ -310,13 +380,13 @@ footer {
 
     <div class="carta carta-aberta" id="carta">
         <p>
-            Meu amor <br><br>
+            Meu amor ❤️ <br><br>
             Foi ao seu lado que eu vi e conheci o amor 
             mas não é um simples amor mas sim um amor real
-            com você eu decidi me entregar por completo.
+            com você eu decidi me entregar por completo. ❤️
             <br><br>
             É você que eu quero pro resto da minha vida.
-            Obrigado por existir e por ser meu lar.
+            Obrigado por existir e por ser meu lar. ❤️
         </p>
     </div>
 </section>
@@ -351,8 +421,17 @@ function abrirCarta() {
     document.querySelector('.carta-fechada').style.display = 'none';
     document.getElementById('carta').style.display = 'block';
 }
-</script>
 
+</script>
+<script>
+function entrarSite() {
+    const tela = document.getElementById("tela-inicial");
+    tela.style.opacity = "0";
+    setTimeout(() => {
+        tela.style.display = "none";
+    }, 1000);
+}
+</script>
 </script>
 
 </body>
