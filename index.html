@@ -1,10 +1,52 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <title>Nossa História ❤️</title>
 
 <style>
+    .carta {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.carta p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .carta {
+        padding: 20px;
+    }
+}
+    /* ===== CORAÇÕES FLUTUANDO ===== */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 22px;
+    animation: subir 6s linear infinite;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+@keyframes subir {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -104,6 +146,61 @@ footer {
 #audio {
     display: none;
 }
+.carta-fechada {
+    background: linear-gradient(135deg, #ff8fab, #ff4d6d);
+    color: white;
+    text-align: center;
+    padding: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.carta-fechada:hover {
+    transform: scale(1.05);
+}
+
+.carta-fechada .icone {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.carta {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 700px;
+    margin: 40px auto 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    font-size: 18px;
+    line-height: 1.8;
+    display: none;
+    animation: abrirCarta 0.8s ease;
+}
+
+/* Animação */
+@keyframes abrirCarta {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .carta {
+        padding: 20px;
+        font-size: 16px;
+    }
+}
+
 </style>
 </head>
 
@@ -202,6 +299,28 @@ footer {
 
 <!-- ===== FOOTER ===== -->
 <footer>
+    <!-- ===== CARTA FINAL ===== -->
+<section>
+    <h2>Uma Carta Para Você</h2>
+
+    <div class="carta-fechada" onclick="abrirCarta()">
+        <div class="icone">💌</div>
+        <p>Clique para abrir a carta</p>
+    </div>
+
+    <div class="carta carta-aberta" id="carta">
+        <p>
+            Meu amor <br><br>
+            Foi ao seu lado que eu vi e conheci o amor 
+            mas não é um simples amor mas sim um amor real
+            com você eu decidi me entregar por completo.
+            <br><br>
+            É você que eu quero pro resto da minha vida.
+            Obrigado por existir e por ser meu lar.
+        </p>
+    </div>
+</section>
+
     Algo simples mas foi feito de coração ❤️ 
 </footer>
 
@@ -213,7 +332,27 @@ function tocar() {
     const a = document.getElementById("audio");
     a.volume = 1;
     a.play();
+    // corações flutuando
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 700);
+
 }
+function abrirCarta() {
+    document.querySelector('.carta-fechada').style.display = 'none';
+    document.getElementById('carta').style.display = 'block';
+}
+</script>
+
 </script>
 
 </body>
