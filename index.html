@@ -3,54 +3,139 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para o Amor da Minha Vida ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 <style>
-body { margin:0; font-family: Arial; background:#111; color:#fff; text-align:center; }
-section { padding:40px 20px; }
-h1 { color:#ff4d6d; }
-button { padding:10px 20px; border:none; border-radius:10px; background:#ff4d6d; color:#fff; }
-.game { margin-top:20px; }
-.grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; max-width:300px; margin:auto; }
-.card { background:#222; height:60px; display:flex; align-items:center; justify-content:center; cursor:pointer; }
-.timeline img { width:200px; border-radius:15px; transition: transform 0.5s; }
-.timeline img:hover { transform: rotateY(180deg); }
+*{box-sizing:border-box}
+body { margin:0; font-family: 'Poppins', sans-serif; background:#0f0f14; color:#fff; text-align:center; overflow-x:hidden; }
+section { padding:40px 16px; }
+h1,h2 { color:#ff4d6d; margin:8px 0 }
+button { padding:12px 20px; border:none; border-radius:14px; background:#ff4d6d; color:#fff; font-weight:600 }
+.hidden{display:none}
+.card { background:#1b1b24; border-radius:12px; height:80px; display:flex; align-items:center; justify-content:center; cursor:pointer; overflow:hidden }
+.grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; max-width:340px; margin:16px auto }
+img { max-width:100%; border-radius:14px }
+.timeline { display:flex; gap:14px; overflow-x:auto; padding-bottom:10px }
+.timeline img { width:200px; transition: transform .6s; }
+.timeline img:active { transform: rotateY(180deg); }
+.fade{animation:fade .8s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.hearts{position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none}
+.heart{position:absolute; color:#ff4d6d; animation:fall 4s linear infinite}
+@keyframes fall{0%{transform:translateY(-10%)}100%{transform:translateY(110vh)}}
 </style>
 </head>
-<body><audio autoplay loop>
-<source src="musica.mp3" type="audio/mpeg">
-</audio><section>
+<body><div id="start">
+  <section>
+    <h1>💌 Tenho algo especial pra você...</h1>
+    <button onclick="startSite()">Entrar ❤️</button>
+  </section>
+</div><audio id="music" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio><div id="main" class="hidden fade"><section>
 <h1>❤️ Nosso Amor ❤️</h1>
-<p>Preparei isso com muito carinho pra você 💕</p>
-</section><section class="game">
-<h2>Jogo da Memória</h2>
+<p>Preparei tudo isso com muito carinho pra você 💕</p>
+<p id="counter"></p>
+</section><section>
+<h2>🧠 Jogo da Memória</h2>
 <div class="grid" id="memory"></div>
 </section><section>
-<h2>Caça Palavra (Simples)</h2>
-<p>Palavra secreta: AMOR</p>
+<h2>🔤 Caça Palavra</h2>
+<p>Forme a frase: <b>EU TE AMO ❤️</b></p>
 </section><section>
-<h2>Quebra-cabeça</h2>
-<p>(Você pode integrar uma lib depois pra arrastar peças)</p>
-<img src="foto.jpg" width="200">
-</section><section class="timeline">
-<h2>Nossa História</h2>
-<p>Cada momento com você é especial ❤️</p>
-<img src="1.jpeg">
-<img src="2.jpeg">
+<h2>🧩 Quebra-cabeça</h2>
+<img src="foto.jpg">
 </section><section>
-<h2>Mensagem</h2>
-<p>
-Você é a melhor coisa que aconteceu na minha vida.
-Te amo mais a cada dia ❤️
-</p>
-</section><script>
-const images = ['1.jpeg','1.jpeg','B','B','C','C','D','D'];
+<h2>📸 Nossa História</h2>
+<div class="timeline">
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+</div>
+</section><section>
+<h2>💌 Mensagem</h2>
+<p id="text"></p>
+</section><section>
+<button onclick="surpresa()">Clique aqui 😏</button>
+</section></div><div class="hearts" id="hearts"></div><script>
+function startSite(){
+  document.getElementById('start').style.display='none';
+  document.getElementById('main').classList.remove('hidden');
+  document.getElementById('music').play();
+  startHearts();
+  startCounter();
+  typeText();
+}
+
+// contador de tempo juntos
+function startCounter(){
+  const startDate = new Date('2023-01-01');
+  setInterval(()=>{
+    const now = new Date();
+    const diff = now - startDate;
+    const days = Math.floor(diff / (1000*60*60*24));
+    document.getElementById('counter').innerText = `Estamos juntos há ${days} dias ❤️`;
+  },1000);
+}
+
+// texto digitando
+const message = "Você é a melhor coisa que aconteceu na minha vida. Te amo mais a cada dia ❤️";
+let i=0;
+function typeText(){
+  if(i < message.length){
+    document.getElementById('text').innerHTML += message.charAt(i);
+    i++;
+    setTimeout(typeText,40);
+  }
+}
+
+// corações caindo
+function startHearts(){
+  const container = document.getElementById('hearts');
+  setInterval(()=>{
+    const heart = document.createElement('div');
+    heart.className='heart';
+    heart.style.left = Math.random()*100+'%';
+    heart.innerText='❤️';
+    container.appendChild(heart);
+    setTimeout(()=>heart.remove(),4000);
+  },300);
+}
+
+// surpresa
+function surpresa(){
+  alert('Eu te amo muito! Você é tudo pra mim ❤️');
+}
+
+// jogo da memória com imagens
+const images = ['img1.jpg','img1.jpg','img2.jpg','img2.jpg','img3.jpg','img3.jpg','img4.jpg','img4.jpg'];
 let shuffled = images.sort(()=>0.5-Math.random());
 const board = document.getElementById('memory');
+let first=null, second=null;
 
-shuffled.forEach((img)=>{
+shuffled.forEach(src=>{
   const card = document.createElement('div');
   card.className='card';
-  card.innerText='?';
-  card.onclick=()=> card.innerText=img;
+  const img = document.createElement('img');
+  img.src=src;
+  img.style.display='none';
+  card.appendChild(img);
+
+  card.onclick=()=>{
+    img.style.display='block';
+    if(!first) first=img;
+    else if(!second){
+      second=img;
+      if(first.src!==second.src){
+        setTimeout(()=>{
+          first.style.display='none';
+          second.style.display='none';
+          first=second=null;
+        },800);
+      } else {
+        first=second=null;
+      }
+    }
+  }
   board.appendChild(card);
 });
 </script></body>
