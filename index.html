@@ -1,438 +1,57 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Nossa História ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para o Amor da Minha Vida ❤️</title>
 <style>
-    .carta {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.carta p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #333;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .carta {
-        padding: 20px;
-    }
-}
-    /* ===== CORAÇÕES FLUTUANDO ===== */
-.heart {
-    position: fixed;
-    bottom: -20px;
-    font-size: 22px;
-    animation: subir 6s linear infinite;
-    opacity: 0.7;
-    z-index: 1;
-}
-
-@keyframes subir {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-110vh);
-        opacity: 0;
-    }
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    background: #fff0f5;
-    color: #333;
-}
-
-/* ===== HEADER ===== */
-header {
-    height: 100vh;
-    background: linear-gradient(135deg, #b91111, #ff8fab);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    padding: 30px;
-}
-
-header h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-header p {
-    font-size: 20px;
-    max-width: 700px;
-    line-height: 1.6;
-}
-
-/* ===== BOTÃO ===== */
-button {
-    margin-top: 25px;
-    padding: 14px 32px;
-    border: none;
-    border-radius: 30px;
-    background: white;
-    color: #ff4d6d;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    transform: scale(1.05);
-}
-
-/* ===== SEÇÕES ===== */
-section {
-    padding: 80px 20px;
-    max-width: 1100px;
-    margin: auto;
-}
-
-section h2 {
-    text-align: center;
-    color: #ff4d6d;
-    margin-bottom: 40px;
-    font-size: 36px;
-}
-
-/* ===== BLOCO ===== */
-.bloco {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
-    align-items: center;
-}
-
-.bloco img, .bloco video {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.texto {
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-/* ===== FOOTER ===== */
-footer {
-    background: #ff4d6d;
-    color: white;
-    text-align: center;
-    padding: 30px;
-    font-size: 16px;
-}
-
-/* ===== PLAYER ===== */
-#audio {
-    display: none;
-}
-.carta-fechada {
-    background: linear-gradient(135deg, #ff8fab, #ff4d6d);
-    color: white;
-    text-align: center;
-    padding: 40px;
-    border-radius: 20px;
-    cursor: pointer;
-    max-width: 500px;
-    margin: 0 auto;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-}
-
-.carta-fechada:hover {
-    transform: scale(1.05);
-}
-
-.carta-fechada .icone {
-    font-size: 50px;
-    margin-bottom: 10px;
-}
-
-.carta {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 30px;
-    border-radius: 20px;
-    max-width: 700px;
-    margin: 40px auto 0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    font-size: 18px;
-    line-height: 1.8;
-    display: none;
-    animation: abrirCarta 0.8s ease;
-}
-
-/* Animação */
-@keyframes abrirCarta {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .carta {
-        padding: 20px;
-        font-size: 16px;
-    }
-}
-.galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.galeria img {
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-}
-
-.galeria img:hover {
-    transform: scale(1.05);
-}
-/* ===== TELA INICIAL ===== */
-#tela-inicial {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(135deg, #b91111, #ff8fab);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 9999;
-    transition: opacity 1s ease;
-}
-
-.conteudo-inicial {
-    color: white;
-    padding: 30px;
-    max-width: 700px;
-}
-
-.conteudo-inicial h1 {
-    font-size: 42px;
-    margin-bottom: 20px;
-}
-
-.conteudo-inicial p {
-    font-size: 20px;
-    line-height: 1.6;
-}
+body { margin:0; font-family: Arial; background:#111; color:#fff; text-align:center; }
+section { padding:40px 20px; }
+h1 { color:#ff4d6d; }
+button { padding:10px 20px; border:none; border-radius:10px; background:#ff4d6d; color:#fff; }
+.game { margin-top:20px; }
+.grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; max-width:300px; margin:auto; }
+.card { background:#222; height:60px; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+.timeline img { width:200px; border-radius:15px; transition: transform 0.5s; }
+.timeline img:hover { transform: rotateY(180deg); }
 </style>
 </head>
+<body><audio autoplay loop>
+<source src="musica.mp3" type="audio/mpeg">
+</audio><section>
+<h1>❤️ Nosso Amor ❤️</h1>
+<p>Preparei isso com muito carinho pra você 💕</p>
+</section><section class="game">
+<h2>Jogo da Memória</h2>
+<div class="grid" id="memory"></div>
+</section><section>
+<h2>Caça Palavra (Simples)</h2>
+<p>Palavra secreta: AMOR</p>
+</section><section>
+<h2>Quebra-cabeça</h2>
+<p>(Você pode integrar uma lib depois pra arrastar peças)</p>
+<img src="foto.jpg" width="200">
+</section><section class="timeline">
+<h2>Nossa História</h2>
+<p>Cada momento com você é especial ❤️</p>
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+</section><section>
+<h2>Mensagem</h2>
+<p>
+Você é a melhor coisa que aconteceu na minha vida.
+Te amo mais a cada dia ❤️
+</p>
+</section><script>
+const images = ['A','A','B','B','C','C','D','D'];
+let shuffled = images.sort(()=>0.5-Math.random());
+const board = document.getElementById('memory');
 
-<body>
-<!-- ===== TELA INICIAL ===== -->
-<div id="tela-inicial">
-    <div class="conteudo-inicial">
-        <h1>Bem-vinda à Nossa História ❤️</h1>
-        <p>
-            Demorei mas completei, meu amor!!<br>
-            Cada detalhe aqui foi feito com amor.<br>
-            Aperte o botão abaixo e reviva cada momento
-            da nossa história juntos.
-        </p>
-           <button onclick="tocar()">🎶 Tocar nossa música</button>
-        <button onclick="entrarSite()">Entrar na nossa história 💕</button>
-    </div>
-</div>
-<!-- ===== PÁGINA INICIAL ===== -->
-<header>
-    <div>
-        <h1>Nossa História de Amor ❤️</h1>
-        <p>
-            Algumas histórias não começam por acaso.  
-            Elas começam com olhares, crescem com sorrisos
-            e se fortalecem com amor, respeito e cumplicidade.
-            Essa é a nossa história. Cada momento, cada foto,
-            cada lembrança registrada aqui é prova de que o amor
-            verdadeiro existe.
-        </p>
-    </div>
-</header>
-
-<!-- ===== HISTÓRIA ===== -->
-<section>
-    <h2>Como Tudo Começou</h2>
-
-    <div class="bloco">
-        <img src="fotos/Aonde tudo começou.jpeg" alt="Nosso começo">
-        <div class="texto">
-            <p>
-                Tudo começou de forma simples, mas cheia de significado.
-                Um encontro que mudou nossas vidas, um sentimento que
-                cresceu sem pedir permissão e que hoje é a base de tudo
-                que somos juntos.
-                Quem diria que através de uma simples ligação você 
-            se tornou tão especial pra mim.
-            </p>
-        </div>
-    </div>
-
-    <div class="bloco">
-        <img src="fotos/7.jpeg" alt="Momentos felizes">
-        <div class="texto">
-            <p>
-                Cada sorriso, cada abraço e cada conversa nos aproximou
-                ainda mais. Aprendemos que amar é escolher todos os dias,
-                mesmo nos momentos difíceis.
-                Ao seu lado percebi o que é o verdadeiro amor.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- ===== VÍDEOS ===== -->
-<section>
-    <section>
-    <h2>Nossos Momentos 📸</h2>
-
-    <div class="galeria">
-        <img src="fotos/6.jpeg">
-        <img src="fotos/2.jpeg">
-        <img src="fotos/3.jpeg">
-        <img src="fotos/4.jpeg">
-        <img src="fotos/8.jpeg">
-        <img src="fotos/1.jpeg">
-        <img src="fotos/preto e branco.jpeg">
-        <img src="fotos/foto preferida dois.jpeg">
-    </div>
-</section>
-    <h2>Nossos Momentos em Vídeo 🎥</h2>
-
-    <div class="bloco">
-        <video src="midia/1 mes.mp4" controls></video>
-        <div class="texto">
-            <p>
-                Esse vídeo representa um dos nossos dias mais especiais.
-                Um registro simples, mas carregado de amor e felicidade.
-            </p>
-        </div>
-    </div>
-
-    <div class="bloco">
-        <video src="midia/praia.mp4" controls></video>
-        <div class="texto">
-            <p>
-                Momentos assim nos lembram o quanto somos fortes juntos
-                e o quanto vale a pena viver cada segundo ao seu lado.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- ===== FUTURO ===== -->
-<section>
-    <h2>Nosso Futuro 💍</h2>
-
-    <div class="bloco">
-        <img src="fotos/Aliança.jpeg">
-        <div class="texto">
-            <p>
-                O futuro é feito de sonhos, planos e promessas.
-                E todos eles têm você ao meu lado.
-                Que nossa história continue sendo escrita
-                com amor, paciência e felicidade.
-                É você que eu quero pro resto da minha vida.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer>
-    <!-- ===== CARTA FINAL ===== -->
-<section>
-    <h2>Uma Carta Para Você</h2>
-
-    <div class="carta-fechada" onclick="abrirCarta()">
-        <div class="icone">💌</div>
-        <p>Clique para abrir a carta</p>
-    </div>
-
-    <div class="carta carta-aberta" id="carta">
-        <p>
-            Meu amor ❤️ <br><br>
-            Foi ao seu lado que eu vi e conheci o amor 
-            mas não é um simples amor mas sim um amor real
-            com você eu decidi me entregar por completo. ❤️
-            <br><br>
-            É você que eu quero pro resto da minha vida.
-            Obrigado por existir e por ser meu lar. ❤️
-        </p>
-    </div>
-</section>
-
-    Algo simples mas foi feito de coração ❤️ 
-</footer>
-
-<!-- ===== ÁUDIO ===== -->
-<audio id="audio" src="midia/VemCa.mp3"></audio>
-
-<script>
-function tocar() {
-    const a = document.getElementById("audio");
-    a.volume = 1;
-    a.play();
-    // corações flutuando
-setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
-}, 700);
-
-}
-function abrirCarta() {
-    document.querySelector('.carta-fechada').style.display = 'none';
-    document.getElementById('carta').style.display = 'block';
-}
-
-</script>
-<script>
-function entrarSite() {
-    const tela = document.getElementById("tela-inicial");
-    tela.style.opacity = "0";
-    setTimeout(() => {
-        tela.style.display = "none";
-    }, 1000);
-}
-</script>
-</script>
-
-</body>
+shuffled.forEach((img)=>{
+  const card = document.createElement('div');
+  card.className='card';
+  card.innerText='?';
+  card.onclick=()=> card.innerText=img;
+  board.appendChild(card);
+});
+</script></body>
 </html>
